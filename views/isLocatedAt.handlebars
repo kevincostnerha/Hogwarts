@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Update Student Location</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+    <h3>Update student location</h3>
+    <form method="post" action="/isLocatedAt">
+        <select name="student">
+            {{#each students}}
+                <option value="{{student_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <select name="place">
+            {{#each locations}}
+                <option value="{{location_id}}">{{place}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Update student location">
+    </form>
+</div>
+
+<div>
+	<h3>Student locations:</h3>
+	<table border="1">
+		<thead> 
+			<th>name</th> 
+			<th>locatedAt</th> 	
+		</thead> 
+		<tbody> 
+			{{#each students}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{place}}</td>
+			</tr>
+			{{/each}}							
+		</tbody> 
+	</table> 
+</div>
+</body>
+</html>

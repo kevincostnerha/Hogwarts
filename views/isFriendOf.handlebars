@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>isFriendOf</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+	<form method="post" action="/isFriendOf">
+		<fieldset>
+			<legend>Add new friendship:</legend>
+			<p>Student Name: <select name="student"></p>			
+				{{#each students}}
+					<option value="{{student_id}}">{{name}}</option>
+				{{/each}}
+			</select>
+			
+			<p>Friend Name: <select name="friend"></p>			
+				{{#each students}}
+					<option value="{{student_id}}">{{name}}</option>
+				{{/each}}
+			</select>
+			
+			<p><input type="submit" name ="add" value="Add Friendship"/></p>
+		 </fieldset>
+	</form>
+</div>
+
+<div>
+	<h4>Delete a Friendship</h4>
+	<form method="post" action="/isFriendOf/delete">
+		<span>Student:</span>
+		<select name="student">
+			{{#each students}}
+				<option value="{{student_id}}">{{name}}</option>
+			{{/each}}
+		</select> <br>
+		<span>Friend:</span>
+		<select name="friend">
+			{{#each students}}
+				<option value="{{student_id}}">{{name}}</option>
+			{{/each}}
+		</select><br>
+		<input type="submit" value="Delete Friendship">
+	</form>
+</div>
+
+<div>
+	<h3>Friends:</h3>
+	<table border="1">
+		<thead> 
+			<th>student</th> 
+			<th>friend</th>	
+		</thead> 
+		<tbody> 
+			{{#each relationship}}
+			<tr> 
+				<td>{{n1}}</td>
+				<td>{{n2}}</td>
+			</tr> 
+			{{/each}}
+		</tbody> 
+	</table> 
+</div>
+</body>
+</html>

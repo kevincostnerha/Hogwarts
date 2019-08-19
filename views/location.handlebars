@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>location</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+	<form method="post" action="/location">
+		<fieldset>
+			<legend>Add new location:</legend>
+			<p>Location Name: <input type="text" placeholder="Location name" name="place"></p>
+			<p>Campus: <select name="campus"></p>
+				<option value="off-campus">off-campus</option>
+				<option value="on-campus">on-campus</option>
+			</select>
+			<p><input type="submit" name ="add" value="Add Location"/></p>
+		 
+		</fieldset>
+	</form>
+</div>
+
+<div>
+	<h4>Delete location</h4>
+	<form action="/location/delete" method="post">
+		<input type="text" placeholder="location_id to delete" name="location_id">
+		<input type="submit" value="Delete location">
+	</form>
+</div>
+
+<div>
+	<h3>Locations:</h3>
+	<table border="1">
+		<thead> 
+			<th>place</th> 
+			<th>campus</th> 	
+			<th>location_id</th>		
+		</thead> 
+		<tbody> 
+			{{#each locations}}
+			<tr>
+				<td>{{place}}</td>
+				<td>{{campus}}</td>
+				<td>{{location_id}}</td>
+			</tr>
+			{{/each}}
+		</tbody> 
+	</table> 
+</div>
+</body>
+</html>

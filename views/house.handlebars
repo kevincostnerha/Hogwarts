@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>house</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	<div id="houseAdder">
+        <h4>Add new house:</h4>
+        <form id="houseAddForm" action="/house" method="post">
+            <input type="text" placeholder="House name" name="tower">
+            <input type="text" placeholder="House colors" name="colors">
+            <input type="text" placeholder="House animal" name="animal">
+            <input type="text" placeholder="House founder" name="founder">
+            <input type="submit" value="Add House" id="submitNewHouse">
+        </form>
+    </div>
+	<div>
+		<h4>Delete house</h4>
+		<form action="/house/delete" method="post">
+			<input type="text" placedholder="house_id to delete" name="house_id">
+			<input type="submit" value="Delete House">
+		</form>
+	</div>
+	<h3>Houses:</h3>
+	<table border="1">
+		<thead> 
+			<th>tower</th> 
+			<th>colors</th> 
+			<th>animal</th>
+			<th>founder</th>
+			<th>house_id</th>		
+		</thead> 
+		<tbody> 
+			{{#each houses}}
+			<tr>
+				<td>{{tower}}</td>
+				<td>{{colors}}</td>
+				<td>{{animal}}</td>
+				<td>{{founder}}</td>
+				<td>{{house_id}}</td>
+			</tr>
+			{{/each}}
+		</tbody> 
+	</table> 
+</body>
+</html>

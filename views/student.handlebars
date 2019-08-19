@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>student</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+	<form method="post" action="/student">
+		<fieldset>
+			<legend>Add new student:</legend>
+			<p>Student Name: <input type="text" name="name"></p>
+			<p>Blood Type: <select name="blood"></p>
+				<option value="pure-blood">pure-blood</option>
+				<option value="half-blood">half-blood</option>
+				<option value="muggle">muggle</option>	
+			</select>		
+			
+			<p>House: <select name="dorm"></p>			<! Need to update this ->
+				<option value="1">Gryffindor</option>
+				<option value="2">Slytherin</option>
+				<option value="3">Ravenclaw</option>				
+				<option value="4">Hufflepuff</option>
+			</select>
+			
+			<p>Current Location: <select name="locatedAt"></p>			<! Need to update this ->
+				<option value="1">Existing Location names populated here</option>
+			</select>
+			
+			<p><input type="submit" name ="add" value="Add Student"/></p>
+		 
+		</fieldset>
+	</form>
+</div>
+
+<div>
+	<form method="post" action="/student/delete">
+		<select name="student_to_delete">
+		{{#each students}}
+			<option value="{{student_id}}">{{name}}</option>
+		{{/each}}
+		</select>
+		<input type="submit" value="Delete student">
+	</form>
+</div>
+
+<div>
+	<h3>Students:</h3>
+	<table border="1">
+		<thead> 
+			<th>name</th> 
+			<th>blood</th>
+			<th>dorm</th>
+			<th>locatedAt</th> 	
+			<th>student_id</th>
+		</thead> 
+		<tbody> 
+			{{#each students}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{blood}}</td>
+				<td>{{tower}}</td>
+				<td>{{place}}</td>
+				<td>{{student_id}}</td>
+			</tr>	
+			{{/each}}							
+		</tbody> 
+	</table> 
+</div>
+</body>
+</html>

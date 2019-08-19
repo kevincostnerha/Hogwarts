@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mutate Class Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="classAdder">
+        <h4>Add new class:</h4>
+        <form id="classAddForm" action="/class" method="post">
+            <input type="text" placeholder="Class name" name="className">
+            <select name="category">
+                <option value="Core">Core</option>
+                <option value="Elective">Elective</option>
+                <option value="Extra-curricular">Extra-curricular</option>
+            </select>
+            <input type="submit" value="Add Class" id="submitNewClass">
+        </form>
+    </div>
+
+    <div id="classRemover">
+        <h4>Remove existing class</h4>
+        <form action="/class/delete" method="post">
+            <select name="class_id">
+                {{#each classes}}
+                    <option value="{{class_id}}">{{course}}</option>
+                {{/each}}
+            </select>
+            <input type="submit" value="Remove Class">
+        </form>
+    </div>
+
+    <div id="classUpdater">
+        <h4>Update existing class's category</h4>
+        <form action="/class/update" method="post">
+            <select name="class_id">
+                {{#each classes}}
+                    <option value="{{class_id}}">{{course}}</option>
+                {{/each}}
+            </select>
+            <select name="category">
+                <option value="Core">Core</option>
+                <option value="Elective">Elective</option>
+                <option value="Extra-curricular">Extra-curricular</option>
+            </select>
+            <input type="submit" value="Update Class">
+        </form>
+    </div>
+
+    <div id="classLister">
+        <h4>List of classes</h4>
+        <table border="1">
+            <thead>
+                <th>Course</th>
+                <th>Category</th>
+            </thead>
+            {{#each classes}}
+                <tr>
+                    <td>{{course}}</td>
+                    <td>{{category}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</body>
+</html>

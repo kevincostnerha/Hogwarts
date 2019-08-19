@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Update Student Dorm Relationship</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+    <h3>Update student's dorm</h3>
+    <form method="post" action="/dorm">
+        <select name="student">
+            {{#each students}}
+                <option value="{{student_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <select name="dorm">
+            {{#each houses}}
+                <option value="{{house_id}}">{{tower}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Update student dorm assignment">
+    </form>
+</div>
+
+<div>
+	<h3>Student Dorm Assignments:</h3>
+	<table border="1">
+		<thead> 
+			<th>name</th> 
+			<th>dorm assignment</th> 	
+		</thead> 
+		<tbody> 
+			{{#each students}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{tower}}</td>
+			</tr>
+			{{/each}}							
+		</tbody> 
+	</table> 
+</div>
+</body>
+</html>

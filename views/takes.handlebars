@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>takes</title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div>
+	<form method="post" action="takes.html">
+		<fieldset>
+			<legend>Enroll student in class:</legend>
+			<p>Student Name:</p>	
+			<form>
+				<select>
+					<option value="">Existing Student names populated here</option>
+				</select>
+			</form>
+			
+			<p>Course Name:</p>	
+			<form>
+				<select>
+					<option value="">Existing Course names populated here</option>
+				</select>
+			</form>
+			<br>
+			<input type="submit" value="Update">
+
+			
+		 </fieldset>
+	</form>
+</div>
+
+
+<div>
+	<h3>Class Load:</h3>
+	<table border="1">
+		<thead> 
+			<th>student</th> 
+			<th>course</th>	
+		</thead> 
+		<tbody> 
+			{{#each takes}}
+			<tr> 
+				<td>{{name}}</td>
+				<td>{{course}}</td>
+				<td><button onclick="deleteCourse({{takes_id}})">**DELETE**</button></td>
+			</tr> 
+			{{/each}}
+				
+				
+		</tbody> 
+	</table> 
+</div>
+</body>
+</html>
